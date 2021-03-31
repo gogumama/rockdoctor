@@ -1,15 +1,136 @@
 <head>
 	<style>
+		body {
+			background-image: url("flowers.jpg");
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+			background-position: center;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+		#badoogi {
+			width: 100px;
+			position: relative;
+			left: 50%;
+			top: 25px;
+			z-index: 2;
+			margin-left: -50px;
+			cursor: pointer;
+		}
+		#tv {
+			position: relative;
+			left: 50%;
+			margin-left: -311px;
+		}
+		.slidecontainer {
+  			width: 100%;
+		}
+		.slider {
+		  -webkit-appearance: none;
+		  width: 622px;
+		  height: 10px;
+		  background: black;
+		  outline: none;
+		  border-radius: 25px;
+		  position: relative;
+		  left: 50%;
+		  margin-left: -311px;
+		}
+
+		.slider:hover {
+		  opacity: 1;
+		}
+
+		.slider::-webkit-slider-thumb {
+		  -webkit-appearance: none;
+		  appearance: none;
+		  width: 25px;
+		  height: 25px;
+		  background: #d3d3d3;
+		  border-radius: 50%;
+		  cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+		  width: 25px;
+		  height: 25px;
+		  background: #d3d3d3;
+		  border-radius: 50%;
+		  cursor: pointer;
+	   	}
 	</style>
 </head>
 <body>
-	<iframe
-		id = "tv"
-		width="622"
-		height="350"
-		src="https://www.youtube.com/embed/5qap5aO4i9A"
-		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-		allowfullscreen>
-	</iframe>
+	<div id = "divparent">
+		<img
+			id="badoogi"
+			src="badoogi.png"
+		/>
+		<br>
+		<iframe
+			id = "tv"
+			width="622"
+			height="350"
+			src="https://www.youtube.com/embed/dptn8ISog2g"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen>
+		</iframe>
+		<br><br>
+		<div class="slidecontainer">
+	      <input type="range" id="location" min="1" max="100" value="0" class="slider">
+	    </div>
+	</div>
+	<script>
+		var videos = [
+			"https://www.youtube.com/embed/dptn8ISog2g",
+			"https://www.youtube.com/embed/sVG92mokYhA",
+			"https://www.youtube.com/embed/6ewAL7owSzo",
+			"https://www.youtube.com/embed/X1aE24lSjvg",
+			"https://www.youtube.com/embed/D6kGlg-bwSI",
+			"https://www.youtube.com/embed/8ZHRt-Zm_rU",
+			"https://www.youtube.com/embed/0MQHfnjMG80",
+			"https://www.youtube.com/embed/0Dnymuobl_w",
+			"https://www.youtube.com/embed/On66TkZBvSw",
+			"https://www.youtube.com/embed/Kk74dQyHDIw",
+			"https://www.youtube.com/embed/2UTqn-UJ1yY",
+			"https://www.youtube.com/embed/6cAoN0F_qZY",
+			"https://www.youtube.com/embed/g7O_KbnFNsw",
+			"https://www.youtube.com/embed/IA69ljxRdW8",
+			"https://www.youtube.com/embed/2isEeED07eM",
+			"https://www.youtube.com/embed/hZhWcENN3Xk",
+			"https://www.youtube.com/embed/oCu5uog7SqE",
+			"https://www.youtube.com/embed/enGIQwt7Oz4",
+			"https://www.youtube.com/embed/iprQlylGs3g"];
+		var backgrounds = [
+			"flowers.jpg",
+			"beach.jpg",
+			"clouds.jpg",
+			"grass.jpg",
+			"stars.jpg"];
+		document.getElementById("badoogi").addEventListener("click", loadRandomVid);
+			function loadRandomVid(){
+				var randomVid = videos[Math.floor(Math.random() * videos.length)];
+	      		document.getElementById("tv").setAttribute('src', randomVid);
+			}
+		var slider = document.getElementById("location");
+		slider.oninput = function() {
+	      progress = this.value;
+	      if(progress < 20){
+	      	document.body.style.backgroundImage = "url('flowers.jpg')";
+	      }
+	      else if(progress < 40){
+	      	document.body.style.backgroundImage = "url('beach.jpg')";
+	      }
+	      else if(progress < 60){
+	      	document.body.style.backgroundImage = "url('clouds.jpg')";
+	      }
+	      else if(progress < 80){
+	      	document.body.style.backgroundImage = "url('grass.jpg')";
+	      }
+	      else{
+	      	document.body.style.backgroundImage = "url('stars.jpg')";
+	      }
+	    }
+	</script>
 </body>
