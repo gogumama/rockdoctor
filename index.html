@@ -9,10 +9,18 @@
 			background-size: cover;
 			background-attachment: fixed;
 		}
-		/*#divparent {
-			left: 50%;
-			margin-left: -311px;
-		}*/
+		h1 {
+			font-family: chalkduster;
+		}
+		p {
+			font-family: helvetica;
+		}
+		@media screen and (max-width: 800px) {
+  			#divparent {
+  				position: relative;
+  				top: 300px;
+			}
+		}
 		#badoogi {
 			width: 100px;
 			position: relative;
@@ -25,6 +33,29 @@
 		#badoogi:hover {
 			filter: brightness(80%);
 		}
+		/*.justDog {
+			width: 100px;
+		}
+		.flip {
+			animation: "puppy 2s ease-in-out";
+			width: 300px;
+		}*/
+		@keyframes puppy{
+				from{
+					transform: rotateZ(0deg)
+				}
+				to{
+					transform: rotateZ(360deg)
+				}
+			}
+		@keyframes puppy2{
+				from{
+					transform: rotateZ(0deg)
+				}
+				to{
+					transform: rotateZ(360deg)
+				}
+			}
 		#tv {
 			position: relative;
 			left: 50%;
@@ -108,8 +139,11 @@
 </head>
 <body>
 	<div id = "divparent">
+		<h1 style="text-align: center; position: relative; top: 50px;">Rock Doctor TV</h1>
+		<p style="text-align: center; position: relative; top: 160px; z-index: 3;"><b><i>random</i></b></p>
 		<img
 			id="badoogi"
+			class = "justDog"
 			src="badoogi.png"
 		/>
 		<br>
@@ -154,6 +188,7 @@
 			<svg id = "right-arrow" width="131" height="81" viewBox="0 0 131 81" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M89.5 31.5H1V58.5H89.5V79.5L129.5 42.5L89.5 2V31.5Z" fill="white" stroke="black" stroke-width="4"/>
 			</svg>
+			<br>
 		</div>
 
 	</div>
@@ -179,10 +214,14 @@
 			"https://www.youtube.com/embed/enGIQwt7Oz4",
 			"https://www.youtube.com/embed/iprQlylGs3g"];
 		var vidIndex = 0;
+		var badoogi = document.getElementById('badoogi');
+		let toggle = false;
 		document.getElementById("badoogi").addEventListener("click", function(event){
 			vidIndex = Math.floor(Math.random() * videos.length)
 			var randomVid = videos[vidIndex];
       		document.getElementById("tv").setAttribute('src', randomVid);
+      		badoogi.style.animation = toggle ? "puppy 2s ease-in-out" : "puppy2 2s ease-in-out";
+      		toggle = !toggle;
 		});
 		document.getElementById("flower").addEventListener("click", function(event){
 			document.body.style.backgroundImage = "url('flowers.jpg')";
