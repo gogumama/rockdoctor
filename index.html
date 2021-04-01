@@ -9,6 +9,18 @@
 			background-size: cover;
 			background-attachment: fixed;
 		}
+		#title-text {
+			position: relative;
+			left: 50%;
+			margin-left: -80px;
+			top: 100px;
+		}
+		#label-text {
+			position: relative;
+			left: 50%;
+			margin-left: -50px;
+			top: 113px;
+		}
 		h1 {
 			font-family: chalkduster;
 		}
@@ -139,8 +151,24 @@
 </head>
 <body>
 	<div id = "divparent">
-		<h1 style="text-align: center; position: relative; top: 50px;">Rock Doctor TV</h1>
-		<p style="text-align: center; position: relative; top: 160px; z-index: 3;"><b><i>random</i></b></p>
+		<svg id = "title-text" style="transform: scale(2.5); overflow: visible;" width="100" height="28" viewBox="0 0 100 28" xmlns="http://www.w3.org/2000/svg">
+			<path id="curve" d="M0.5 12.5C29 -11.0963 63.2577 7.69635 75 12.5C86.7423 17.3036 92.5 19.5 110 19.5C114.105 19.5 133.5 20.5 151.5 6.5" fill="none" stroke="none"/>
+			<text style="z-index: 3; color: black; font-family: chalkduster;">
+				<textPath xlink:href="#curve">
+					Rock Doctor TV
+				</textPath>
+			</text>
+		</svg>
+		<br><br>
+		<svg id = "label-text" style = "overflow: visible;" width="52" height="36" viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+			<path id="curve2" d="M1 35.5C6 12.5 23.5 -1.99999 51.5 1.00003" fill="none" stroke="none"/>
+			<text style="z-index: 3; color: black; font-family: helvetica;">
+				<textPath xlink:href="#curve2">
+					random
+				</textPath>
+			</text>
+		</svg>
+		<br><br><br><br>
 		<img
 			id="badoogi"
 			class = "justDog"
