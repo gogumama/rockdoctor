@@ -1,4 +1,5 @@
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Rock Doctor</title>
 	<style>
 		body {
@@ -21,16 +22,12 @@
 			margin-left: -50px;
 			top: 113px;
 		}
-		h1 {
-			font-family: chalkduster;
-		}
-		p {
-			font-family: helvetica;
-		}
-		@media screen and (max-width: 800px) {
+		@media only screen and (max-width: 600px) {
   			#divparent {
   				position: relative;
-  				top: 300px;
+  				top: 213px;
+  				left: 160px;
+  				transform: scale(0.7);
 			}
 		}
 		#badoogi {
@@ -45,13 +42,6 @@
 		#badoogi:hover {
 			filter: brightness(80%);
 		}
-		/*.justDog {
-			width: 100px;
-		}
-		.flip {
-			animation: "puppy 2s ease-in-out";
-			width: 300px;
-		}*/
 		@keyframes puppy{
 				from{
 					transform: rotateZ(0deg)
